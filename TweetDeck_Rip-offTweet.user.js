@@ -33,6 +33,8 @@ function clicked(Event) {
             tweet_text = tweet_text.replace(a.outerHTML, "#" + a.getElementsByTagName("span")[1].innerHTML);
         } else if (a.rel === "user") {
             tweet_text = tweet_text.replace(a.outerHTML, "@" + a.getElementsByTagName("span")[1].innerHTML);
+        } else if (a.rel === "url noopener noreferrer") {
+            tweet_text = tweet_text.replace(a.outerHTML, a.getAttribute("data-full-url"));
         };
     });
     textarea.value = tweet_text;
